@@ -49,15 +49,15 @@
                 <label for="pitch" class="col-md-4 col-form-label text-md-right">Pitch</label>
 
                 <div class="col-md-6">
-                    <input id="pitchTooL" type="radio" name="pitch" value="pitchTooL">
+                    <input id="pitchTooL" type="radio" name="pitch" value="1">
                     <label for="pitchTooL">とても低い</label>
-                    <input id="pitchL" type="radio" name="pitch" value="pitchL">
+                    <input id="pitchL" type="radio" name="pitch" value="2">
                     <label for="pitchL">低い</label>
-                    <input id="pitch" type="radio" name="pitch" value="pitch">
+                    <input id="pitch" type="radio" name="pitch" value="3">
                     <label for="pitch">普通</label>
-                    <input id="pitchH" type="radio" name="pitch" value="pitchH">
+                    <input id="pitchH" type="radio" name="pitch" value="4">
                     <label for="pitchH">高い</label>
-                    <input id="pitchTooH" type="radio" name="pitch" value="pitchTooH">
+                    <input id="pitchTooH" type="radio" name="pitch" value="5">
                     <label for="pitchTooH">とても高い</label>
             
                     @if ($errors->has('pitch'))

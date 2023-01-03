@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->string('song');
+            $table->string('artist');
+            $table->string('body');
+            $table->string('score');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
