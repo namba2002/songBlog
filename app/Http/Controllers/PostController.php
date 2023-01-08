@@ -28,6 +28,12 @@ class PostController extends Controller
     }
     
     public function store(Request $request, Post $post){
+        $request->validate([
+            'post.song' => 'required',
+            'post.artist' => 'required',
+            'post.score' => 'required|between:0,100|numeric',
+            'post.body' => 'required',
+        ]);
         $input = $request['post'];
         $input += ['user_id' => auth()->id()];
         $post->fill($input)->save();
