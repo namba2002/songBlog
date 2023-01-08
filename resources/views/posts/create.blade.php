@@ -6,6 +6,8 @@
         <title>投稿</title>
     </head>
     <body>
+        とりあえずの変更
+        変更2回目
         <h1>Blog Name</h1>
         <form action="/posts" method="POST">
             @csrf
