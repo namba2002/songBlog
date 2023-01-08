@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
 
 class PostController extends Controller
 {
-    public function mypage(Post $post)
+    public function mypage(User $user)
     {
-        return view('posts/mypage');
+        return view('users/mypage')->with([
+            'user'=>$user,
+            'posts' => Post::where('user_id', '=', $user->id)->orderBy('updated_at',('DESC'))->paginate(10),
+        ]);
     }
     
     public function index(Post $post){
@@ -24,6 +28,12 @@ class PostController extends Controller
     }
     
     public function store(Request $request, Post $post){
+        $request->validate([
+            'post.song' => 'required',
+            'post.artist' => 'required',
+            'post.score' => 'required|between:0,100|numeric',
+            'post.body' => 'required',
+        ]);
         $input = $request['post'];
         $input += ['user_id' => auth()->id()];
         $post->fill($input)->save();
@@ -35,18 +45,20 @@ class PostController extends Controller
         $keyword = $request['keyword'];
         
         $query = Post::query();
+        
+        
+        if(!(is_null($keyword))){
+            $query->where('song', 'like', '%'.$keyword.'%')
+                    ->orWhere('artist', 'like', '%'.$keyword.'%');
+        }
+        
         if(!(is_null($checkbox_id))){
             $query->whereHas('user', function ($q) use($checkbox_id){
                 $q->where('pitch', '=', $checkbox_id);
         });
         }
-        if(!(is_null($keyword))){
-            $query->where('song', 'like', '%'.$keyword.'%')
-                    ->orWhere('artist', 'like', '%'.$keyword.'%');
-        }
-        $post = $query->get();
-        return view('/posts/index')->with([
-            'posts' => $post -> with('user')->orderBy('updated_at',('DESC'))->paginate(5),
+        return view('/posts/serch')->with([
+            'posts' => $query-> with('user')->orderBy('updated_at',('DESC'))->paginate(10),
             'user_id'=>auth()->id(),
         ]);
     }

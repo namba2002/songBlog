@@ -12,7 +12,7 @@
             <!-- Name -->
             <div>
                 <x-input-label for="name" :value="__('Name')" />
-                <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" autofocus />
                 <x-input-error :messages="$errors->get('name')" class="mt-2" />
             </div>
             
@@ -25,7 +25,7 @@
                     <label for="gender-m">Male</label>
                     <input id="gender-f" type="radio" name="gender" value="female">
                     <label for="gender-f">Female</label>
-                    <input-error :messages="$errors->get('gender')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('gender')" class="mt-2" />
                 </div>
             </div>
             
@@ -34,13 +34,8 @@
                 <label for="age" class="col-md-4 col-form-label text-md-right">Age</label>
             
                 <div class="col-md-6">
-                    <input id="age" type="number" min="1" class="block mt-1 w-full" name="age" value="old('age') }}" required>
-            
-                    @if ($errors->has('age'))
-                        <span class="invalid-feedback">
-                            <strong>{{ $errors->first('age') }}</strong>
-                        </span>
-                    @endif
+                    <input id="age" type="number" min="1" class="block mt-1 w-full" name="age" value="old('age') }}">
+                    <x-input-error :messages="$errors->get('age')" class="mt-2" />
                 </div>
             </div>
                      
@@ -59,19 +54,14 @@
                     <label for="pitchH">高い</label>
                     <input id="pitchTooH" type="radio" name="pitch" value="5">
                     <label for="pitchTooH">とても高い</label>
-            
-                    @if ($errors->has('pitch'))
-                        <span class="invalid-feedback">
-                            <strong>{{ $errors->first('pitch') }}</strong>
-                        </span>
-                    @endif
+                    <x-input-error :messages="$errors->get('pitch')" class="mt-2" />
                 </div>
             </div>   
 
             <!-- Email Address -->
             <div class="mt-4">
                 <x-input-label for="email" :value="__('Email')" />
-                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" />
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
@@ -82,7 +72,7 @@
                 <x-text-input id="password" class="block mt-1 w-full"
                                 type="password"
                                 name="password"
-                                required autocomplete="new-password" />
+                                autocomplete="new-password" />
 
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
@@ -93,7 +83,7 @@
 
                 <x-text-input id="password_confirmation" class="block mt-1 w-full"
                                 type="password"
-                                name="password_confirmation" required />
+                                name="password_confirmation"/>
 
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
             </div>

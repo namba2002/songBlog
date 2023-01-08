@@ -11,22 +11,22 @@
             @csrf
             <div class="song">
                 <h2>曲名</h2>
-                <input type="text" name="post[song]" placeholder="曲名" value="{{old('post.song')}}" require/>
+                <input type="text" name="post[song]" placeholder="曲名" value="{{old('post.song')}}"/>
                 <p class="song__error" style="color:red">{{$errors->first('post.song')}}
             </div>
             <div class="artist">
                 <h2>歌手名</h2>
-                <input type="text" name="post[artist]" placeholder="歌手名" value="{{old('post.artist')}}" require/>
+                <input type="text" name="post[artist]" placeholder="歌手名" value="{{old('post.artist')}}"/>
                 <p class="artist__error" style="color:red">{{$errors->first('post.artist')}}
             </div>
             <div class="score">
                 <h2>点数</h2>
-                <input type="text" name="post[score]" placeholder="点数" value="{{old('post.score')}}" require/>
+                <input type="text" name="post[score]" placeholder="点数" value="{{old('post.score')}}"/>
                 <p class="score__error" style="color:red">{{$errors->first('post.score')}}
             </div>
             <div class="body">
                 <h2>感想</h2>
-                <textarea name="post[body]" placeholder="感想" require>{{ old('post.body') }} </textarea>
+                <textarea name="post[body]" placeholder="感想">{{ old('post.body') }} </textarea>
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
             <input type="submit" value="保存"/>

@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
 
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'index')->name('index');
-    Route::get('/posts/mypage','mypage')->name('mypage');
+    Route::get('/users/{user}','mypage')->name('mypage');
     Route::post('/posts/serch', 'serch')->name('serch');
     Route::post('/posts', 'store')->name('store');
     Route::get('/posts/create', 'create')->name('create');

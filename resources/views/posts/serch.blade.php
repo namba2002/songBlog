@@ -6,9 +6,6 @@
             .main{
                 display: flex;
             }
-            .main2{
-                width: 50%;
-            }
         </style>
         <meta charset="utf-8">
         <title>Blog</title>
@@ -51,9 +48,9 @@
             <a href='/posts/create'>新規投稿</a>
         </dvi>
         <div class='main'>
-        <div class='main2'>
+        <div class='posts'>
             @foreach ($posts as $post)
-                <div class="post font-bold text-blue-500 py-2 px-4 my-8 border-8 w-1 border-blue-100 rounded-lg" >
+                <div class="post font-bold text-blue-500 py-2 px-4 my-8 border-8 w-1/2 border-blue-100 rounded-lg" >
                     <font size=5>ユーザー名</font>
                     &emsp;<a href="/users/{{$post->user->id}}">{{ $post->user->name }}</a></br>
                     <font size=5>曲名</font>
@@ -73,7 +70,7 @@
                 </div>
             @endforeach
         </div>
-        <div class='main2'>
+        <div class='main'>
             <a href="/users/{{$user_id}}">マイページ</a>
         </div>
         
@@ -82,7 +79,7 @@
             {{ $posts->links() }}
         </div>
         <div class="footer">
-            <a href="/">戻る</a>
+            <a href="/">戻りましょうか</a>
         </div>
         
         <script>
