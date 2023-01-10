@@ -4,9 +4,6 @@
     <head>
         <style>
             
-            .main2{
-                width: 50%;
-            }
         </style>
         <meta charset="utf-8">
         <title>Blog</title>
