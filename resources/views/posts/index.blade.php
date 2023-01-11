@@ -3,7 +3,12 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <style>
-            
+            .main{
+                display: flex;
+            }
+            .main2{
+                width: 50%;
+            }
         </style>
         <meta charset="utf-8">
         <title>Blog</title>
