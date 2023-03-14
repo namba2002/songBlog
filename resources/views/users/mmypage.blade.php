@@ -18,7 +18,7 @@
     <body>
         <div class="main">
             <font size=10>マイページ</font>
-            <div class="lg:-left-36 px-6 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 scale-100">
+            <div class="px-6 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 scale-100">
                     <div class="grid gap-8 gap-y-12 sm:max-w-sm sm:mx-auto lg:max-w-full scale-150">
                         <div class="p-8 bg-white border rounded shadow-sm">
                             <p class="mb-5 text-gray-700">
@@ -83,12 +83,11 @@
                                     </div>
                                 </div>
                             </div>
-                            @if($post->user->id==$user->id)
+            
                                 <form action="posts/{{$post->id}}" id="form_{{$post->id}}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button type="buttom" onclick="deletePost({{$post->id}})">delete</button>
-                            @endif
                         </div>
                         
                     </div>

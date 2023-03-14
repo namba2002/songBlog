@@ -16,6 +16,14 @@ class PostController extends Controller
         ]);
     }
     
+    public function mmypage()
+    {
+        return view('users/mmypage')->with([
+            'user'=>auth()->user(),
+            'posts' => Post::where('user_id', '=', auth()->id())->orderBy('updated_at',('DESC'))->paginate(10),
+        ]);
+    }
+    
     public function index(Post $post){
         return view('posts/index')->with([
             'posts' => $post -> getPaginateByLimit(),
@@ -33,6 +41,7 @@ class PostController extends Controller
             'post.artist' => 'required',
             'post.score' => 'required|between:0,100|numeric',
             'post.body' => 'required',
+            'post.song_key' => 'required'
         ]);
         $input = $request['post'];
         $input += ['user_id' => auth()->id()];
@@ -57,7 +66,7 @@ class PostController extends Controller
                 $q->where('pitch', '=', $checkbox_id);
         });
         }
-        return view('/posts/serch')->with([
+        return view('/posts/index')->with([
             'posts' => $query-> with('user')->orderBy('updated_at',('DESC'))->paginate(10),
             'user_id'=>auth()->id(),
         ]);
