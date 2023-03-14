@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('artist');
             $table->string('body');
             $table->string('score');
+            $table->integer('song_key');
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });

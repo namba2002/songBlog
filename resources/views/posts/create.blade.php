@@ -6,9 +6,6 @@
         <title>投稿</title>
     </head>
     <body>
-        とりあえずの変更
-        変更2回目
-        変更3回目
         <h1>Blog Name</h1>
         <form action="/posts" method="POST">
             @csrf
@@ -27,9 +24,14 @@
                 <input type="text" name="post[score]" placeholder="点数" value="{{old('post.score')}}"/>
                 <p class="score__error" style="color:red">{{$errors->first('post.score')}}
             </div>
-            <div class="body">
+            <div class="score">
+                <h2>キー</h2>
+                <input type="text" name="post[song_key]" placeholder="キー情報" value="{{old('post.song_key')}}"/>
+                <p class="score__error" style="color:red">{{$errors->first('post.song_key')}}
+            </div>
+            <div class="body whitespace-pre-wrap">
                 <h2>感想</h2>
-                <textarea name="post[body]" placeholder="感想">{{ old('post.body') }} </textarea>
+                <textarea name="post[body]" placeholder="感想" cols=20>{{ old('post.body') }} </textarea>
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
             <input type="submit" value="保存"/>

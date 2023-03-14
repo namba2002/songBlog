@@ -17,6 +17,7 @@ class Post extends Model
         'artist',
         'score',
         'body',
+        'song_key',
         'user_id',
     ];
     

@@ -81,6 +81,8 @@
         <div class="footer">
             <a href="/">戻りましょうか</a>
         </div>
+        <section class="text-gray-600 body-font">
+  
         
         <script>
             function deletePost(id){

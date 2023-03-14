@@ -15,7 +15,7 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('posts/login');
 });
 
 Route::get('/dashboard', function () {
@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
 
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'index')->name('index');
+    Route::get('/users/mmypage','mmypage')->name('mmypage');
     Route::get('/users/{user}','mypage')->name('mypage');
     Route::post('/posts/serch', 'serch')->name('serch');
     Route::post('/posts', 'store')->name('store');
